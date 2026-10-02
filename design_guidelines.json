@@ -1,0 +1,198 @@
+{
+  "theme_strategy": {
+    "default_mode": "dark",
+    "style_archetype": "ARCHETYPE 4: SWISS & HIGH-CONTRAST + ARCHETYPE 2: THE PERFORMANCE PRO (Dark Minimalist Fintech & Tactical Vehicle/Expense Telemetry)",
+    "mood": "Sleek, high-contrast obsidian dark mode, ultra-fast keypad input, crisp monospaced telemetry, zero visual clutter, Swiss clarity in Italian",
+    "theme_toggle_supported": true
+  },
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#0B0F14",
+        "on_bg": "#F1F5F9",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "link": "#38BDF8",
+          "error": "#F87171",
+          "success": "#34D399",
+          "warning": "#FBBF24"
+        }
+      },
+      {
+        "name": "panel",
+        "kind": "solid",
+        "bg": "#131B24",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#A0ABBA",
+        "roles": {
+          "border": "#223142",
+          "hover_bg": "#1A2532",
+          "active_bg": "#223142"
+        }
+      },
+      {
+        "name": "panel_elevated",
+        "kind": "solid",
+        "bg": "#1A2533",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#CBD5E1",
+        "roles": {
+          "border": "#2D4056"
+        }
+      },
+      {
+        "name": "input_surface",
+        "kind": "solid",
+        "bg": "#0E151D",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#8393A7",
+        "roles": {
+          "border": "#223142",
+          "focus_ring": "#0EA5E9"
+        }
+      },
+      {
+        "name": "accent_pill",
+        "kind": "solid",
+        "bg": "#0284C7",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#E0F2FE"
+      },
+      {
+        "name": "fuel_card_surface",
+        "kind": "solid",
+        "bg": "#151F2C",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "accent_orange": "#FB923C",
+          "accent_emerald": "#34D399"
+        }
+      },
+      {
+        "name": "inverse",
+        "kind": "solid",
+        "bg": "#F8FAFC",
+        "on_bg": "#090D12",
+        "on_bg_muted": "#475569"
+      }
+    ],
+    "accent": "#0284C7",
+    "on_accent": "#FFFFFF",
+    "chart_palette": {
+      "fuel": "#F97316",
+      "car_maintenance": "#EAB308",
+      "groceries": "#10B981",
+      "dining": "#06B6D4",
+      "home_utilities": "#6366F1",
+      "subscriptions": "#8B5CF6",
+      "shopping": "#EC4899",
+      "health": "#14B8A6",
+      "work_office": "#64748B",
+      "travel_leisure": "#F43F5E",
+      "misc": "#94A3B8"
+    }
+  },
+  "typography": {
+    "font_heading": "'Manrope Variable', sans-serif",
+    "font_body": "'DM Sans Variable', sans-serif",
+    "font_mono": "'JetBrains Mono Variable', monospace",
+    "css_import_instructions": "Import in index.css: @import '@fontsource-variable/manrope'; @import '@fontsource-variable/dm-sans'; @import '@fontsource-variable/jetbrains-mono';",
+    "scale_px": {
+      "display": 56,
+      "h1": 40,
+      "h2": 28,
+      "h3": 22,
+      "h4": 18,
+      "body": 16,
+      "caption": 14
+    },
+    "rules": {
+      "amounts_and_km": "Always render currency figures (€ 1.250,40) and odometer data in font_mono with tabular-nums and tracking-tight",
+      "headings": "font_heading with font-bold or font-extrabold and tracking-tight",
+      "labels": "uppercase text-xs font-semibold tracking-[0.15em] text-slate-400"
+    }
+  },
+  "entry_surfaces": {
+    "/": "Mobile-first instant keypad expense input with massive € display, quick chips, and live daily balance strip, expandable to full desk dashboard",
+    "/expenses": "High-density expense register with category badges, instant search, inline quick-edit category dropdown, and multi-filter header",
+    "/km": "Automotive telemetry hub — odometer month start/end/delta, fuel cost per km ratio widget, monthly distance graph, and trip logs",
+    "/fuel": "Fuel expense cockpit — total liters, monthly cost, external reimbursement aid calculator, and €/km efficiency metric cards",
+    "/import": "Freeform smart text parser studio — paste raw text or 2025/2026 logs, real-time regex preview table with keyword auto-tagging, and 1-click batch ingest",
+    "/analytics": "Deep analytics room — interactive category drill-down pie/bar, month-over-month % delta delta, 12-month trendline, weekday spend heatmap, and end-of-month projection"
+  },
+  "navigation": {
+    "desktop": "Top fixed glass header (h-16, backdrop-blur-xl bg-[#0B0F14]/85 border-b border-[#1E293B]) with logo mark 'SPESE 2026', navigation links [Nuova Spesa, Registro Spese, Km & Auto, Carburante, Analisi & Trend, Importa Testo], Quick Total Pill, and Quick Add Action",
+    "mobile": "Bottom fixed navigation bar (h-16, bg-[#0E151D]/95 backdrop-blur-lg border-t border-[#1E293B]) with 5 primary icons + floating center '+' action for rapid logging",
+    "language": "Italian (it-IT formatting: € 1.250,50, date: dd/MM/yyyy)"
+  },
+  "layout_and_grids": {
+    "mobile_quick_add_hero": {
+      "concept": "Tactical POS / Calculator inspired instant entry",
+      "components": [
+        "Massive dynamic input for Amount (€) with fast presets (+5, +10, +20, +50)",
+        "Motivo / Descrizione with dynamic auto-category inference tag badge",
+        "Date picker defaulting to Oggi (today) with Ieri (yesterday) shortcut",
+        "Category quick selector scroll-ribbon",
+        "Giant prominent 'Salva Spesa' CTA with tactile press state and instant Sonner confirmation"
+      ]
+    },
+    "dashboard_grid": {
+      "base": "grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5",
+      "kpi_row": "lg:col-span-3 col-span-1 (Total Mese, Spesa Media/Giorno, Km Percorsi, Costo Medio €/Km)",
+      "main_chart": "lg:col-span-8 col-span-full",
+      "side_drilldown": "lg:col-span-4 col-span-full",
+      "heatmap_section": "lg:col-span-6 col-span-full",
+      "projection_card": "lg:col-span-6 col-span-full"
+    }
+  },
+  "key_features_and_components": {
+    "auto_categorization_engine": {
+      "description": "Smart keyword-to-category rulebook (e.g. 'benzina', 'diesel', 'eni', 'q8' -> Carburante; 'conad', 'coop', 'esselunga', 'spesa' -> Alimentari/Spesa; 'tagliando', 'gomme', 'assicurazione', 'bollo', 'autolavaggio' -> Auto & Manutenzione; 'pranzo', 'cena', 'bar', 'caffe', 'ristorante', 'pizzeria' -> Ristoranti & Bar; 'bolletta', 'luce', 'gas', 'affitto', 'condominio' -> Casa & Utenze; 'farmacia', 'medico', 'visita' -> Salute; 'amazon', 'vestiti', 'elettronica' -> Shopping; 'telepass', 'autostrada', 'treno', 'parcheggio' -> Viaggi & Trasporti)",
+      "ui_feedback": "Instant animated tag pill showing inferred category while user types motive"
+    },
+    "km_and_fuel_telemetry": {
+      "description": "Monthly odometer tracker: initial Km, final Km, calculated delta Km, total fuel spent, external fuel aid/reimbursement deducted, true net fuel cost, and exact €/km vehicle running cost",
+      "visuals": "Progress gauge, month-over-month Km comparison bar chart, and efficiency benchmark badge"
+    },
+    "freeform_text_importer": {
+      "description": "TextArea parser that parses raw multi-line notes (e.g. '12/01 35.50 benzina q8' or '05/02 12.00 pizza con marco') with syntax highlighter, preview data grid with editable rows before final database commit, support for importing 2025 and 2026 data files"
+    },
+    "analytics_suite": {
+      "charts": [
+        "Recharts ResponsiveContainer PieChart for category breakdown with custom hover tooltip and drilldown modal",
+        "Recharts BarChart for Monthly comparisons (2025 vs 2026 when available)",
+        "Recharts LineChart/AreaChart for cumulative monthly burn rate vs target projection",
+        "Weekday Spending Heatmap (Lun - Dom) matrix showing peak expense days",
+        "Top 5 categories table and Top 5 single expense motives leaderboard"
+      ]
+    }
+  },
+  "motion": {
+    "transitions": "transition-colors duration-150 ease-out, transition-opacity duration-150 ease-out, transition-transform duration-150 ease-out",
+    "banned": "transition: all",
+    "micro_interactions": {
+      "button_press": "active:scale-[0.98] transition-transform",
+      "card_hover": "hover:border-[#334155] hover:bg-[#151E2A] transition-colors",
+      "number_change": "tabular-nums transition-all"
+    }
+  },
+  "accessibility": {
+    "wcag_compliance": "WCAG AA / APCA standards with minimum 4.5:1 text contrast on dark obsidian backgrounds",
+    "screen_readers": "All key numbers have aria-label with full descriptive text (e.g. 'Totale speso questo mese: 1.450 euro')",
+    "data_testids": "MANDATORY data-testid on every interactive element (e.g. data-testid='amount-input', data-testid='motive-input', data-testid='save-expense-btn', data-testid='category-select', data-testid='filter-month-select', data-testid='km-initial-input', data-testid='km-final-input', data-testid='import-text-textarea', data-testid='import-parse-btn', data-testid='import-save-btn')"
+  },
+  "instructions_to_main_agent": [
+    "Build a complete Italian personal expense and car telemetry dashboard in FastAPI + React 19 + Tailwind v4 + Recharts.",
+    "Implement seed data covering early 2026 entries (January-August 2026) + sample 2025 historic baseline so charts and analytics look immediately rich and functional upon first launch.",
+    "Ensure the fast input on Home is lightning fast for mobile: big numeric input with euro sign, smart autocomplete on motive with instant auto-categorization badge, and big primary save button with Sonner toast feedback.",
+    "Include the Freeform Text Import feature in a dedicated tab/page (/import) that accurately parses common Italian note formats (e.g., '14/01 45.00 benzina Eni', '15/01 22.50 Spesa Conad') with real-time preview table and editable categories before commit.",
+    "Include Km & Fuel telemetry: Monthly Km logs (start km, end km, delta km), fuel expense total, external aid / rimborso input, and calculated €/km ratio with charts.",
+    "Include full Analytics page (/analytics): 12-month expense trend line, Category distribution donut chart, Top 5 motives, Weekday spend distribution, and End-of-month forecast projection.",
+    "Use dark mode as primary default with obsidian `#0B0F14` page background, `#131B24` card backgrounds, `#223142` borders, and vivid `#0284C7` / `#38BDF8` cyan-sky accents and `#F97316` fuel accents.",
+    "Use JetBrains Mono for all numeric values and currency amounts, Manrope for bold headings, and DM Sans for clean UI copy.",
+    "Attach data-testid on all interactive elements for robust test automation."
+  ]
+}

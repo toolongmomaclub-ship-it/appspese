@@ -1,0 +1,65 @@
+{
+  "iteration": 1,
+  "mode": "generate",
+  "passed": 7,
+  "failed": 0,
+  "bugs": [],
+  "action_items": [],
+  "retest_needed": false,
+  "checks": [
+    {
+      "criterion": "Editor abbonamenti carica le voci esistenti",
+      "name": "subs-editor-loads-existing",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Clicking subs-edit-btn opened subs-editor with 4 subs-edit-row entries; name inputs = [chat, icloud, amazon, google], amount inputs = [23, 10, 5, 3]. Cancel returned to subs-list."
+    },
+    {
+      "criterion": "BUG FIX: righe abbonamento con chiave stabile (no index-as-key)",
+      "name": "subs-stable-key-on-row-removal",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Added 5th row (tscheck-newsub/7), edited row idx1 (icloud -> tscheck-icloud-edited/99), removed non-adjacent row idx3 (google). Remaining rows retained correct own values: names=[chat, tscheck-icloud-edited, amazon, tscheck-newsub], amounts=[23,99,5,7] -- no value shifted onto another row. Confirms rows keyed by stable id (crypto.randomUUID), not array index."
+    },
+    {
+      "criterion": "Salvataggio abbonamenti",
+      "name": "subs-save-updates-list-and-total",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Added tscheck-extra/9 and saved: subs-list showed it, subs-total = '50,00 €'. Then removed it and saved again: subs-total returned to '41,00 €', tscheck-extra gone. Final GET /api/subscriptions confirmed restored default 4 voci totalling 41."
+    },
+    {
+      "criterion": "Annulla modifica abbonamenti",
+      "name": "subs-cancel-discards-changes",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Edited first name input to 'tscheck-should-not-save', clicked subs-cancel-btn -> returned to subs-list which still shows 'chat' and never contains the discarded draft text."
+    },
+    {
+      "criterion": "Core: nuova spesa dalla Home",
+      "name": "home-add-expense-shows-in-recent",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Filled amount-input=12.34, motive-input='tscheck-spesa-<ts>', clicked save-expense-btn; POST /api/expenses returned 2xx with matching motivo in JSON body, success toast ('Salvato...') appeared. Run through APP_URL (https://spesa-app-2.preview.emergentagent.com/) per ingress requirement."
+    },
+    {
+      "criterion": "Core: drill-down Analisi con intestazioni",
+      "name": "analytics-drilldown-shows-headers",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "On /analisi (tab Categorie default), clicked category-drill-btn; drill-dialog opened showing drill-subtitle and drill-list."
+    },
+    {
+      "criterion": "Categorie: crea e rinomina",
+      "name": "categories-create-and-rename",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Created category 'tscheck-cat-<ts>' via category-new-input + category-create-btn, appeared in list. Renamed via category-rename-btn -> category-rename-input -> category-rename-save-btn to '<name>-renamed'; list showed the new exact name and no longer showed the old exact name."
+    }
+  ],
+  "notes": [
+    "All 7 acceptance criteria are UI-facing and fully exercised via browser checks; no separate backend pytest files were needed since each criterion has a direct UI surface and was validated end-to-end (including underlying API calls via waitForResponse/API JSON assertions where relevant).",
+    "seed_facts restoration: subscriptions default (chat 23, icloud 10, amazon 5, google 3 = 41) verified restored via GET /api/subscriptions after the save-flow check mutated/restored it.",
+    "Minor self-inflicted assertion bugs during authoring (currency text order '50,00 €' vs '€ 50,00', and substring overlap between 'orig' and 'orig-renamed') were fixed in the check scripts themselves -- not app bugs."
+  ]
+}

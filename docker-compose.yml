@@ -1,0 +1,40 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: spese-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    container_name: spese-backend
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      DB_NAME: spese
+      CORS_ORIGINS: "*"
+      APP_TZ: Europe/Rome
+    ports:
+      - "8001:8001"
+
+  frontend:
+    build: ./frontend
+    container_name: spese-frontend
+    restart: unless-stopped
+    depends_on: [backend]
+    ports:
+      - "8080:80"
+
+volumes:
+  mongo-data:
